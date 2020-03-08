@@ -1,28 +1,64 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- Navbar -->
+    <navbar></navbar>
+
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-sm ">
+          <comment-section></comment-section>
+        </div>
+        <div class="col-sm"> 
+          <comments-list :comments="comments"></comments-list>
+        </div>
+
+      </div>
+    </div>  
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Navbar from './components/Navbar'
+import CommentSection from './components/CommentSection'
+import CommentsList from './components/CommentsList'
+
+import bus from './eventbus'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Navbar,
+    CommentSection,
+    CommentsList
+  },
+  data(){
+    return{
+      comments:[
+        {
+          author:'John Doe',
+          email:'johndoe@gmail.com',
+          message:"Some quick example text to build on the card title and make up the bulk of the card's content."
+        }
+      ],
+    }
+  },
+  mounted(){
+    bus.$on('formData', (data)=>{
+      this.updateComments(data)
+    })
+  },
+  methods:{
+    updateComments(data){
+      this.comments.push(data)
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+
+
 </style>
