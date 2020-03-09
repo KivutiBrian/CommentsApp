@@ -45,9 +45,7 @@ export default {
     }
   },
   mounted(){
-    bus.$on('formData', (data)=>{
-      this.updateComments(data)
-    })
+    bus.$on('formData', data => this.updateComments(data))
   },
   methods:{
     updateComments(data){

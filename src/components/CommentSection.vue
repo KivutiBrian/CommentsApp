@@ -36,12 +36,15 @@ export default {
     },
     methods:{
         submitForm(){
+            
             const payload = {
                 author: this.author,
                 email:this.email,
                 message: this.message
             }
+            
             bus.$emit('formData', payload)
+
             this.author = ''
             this.email = ''
             this.message = ''
