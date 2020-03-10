@@ -58,7 +58,6 @@ export default {
 
 .feedback-box{
     margin: 10px;
-    width: 100%;
     padding: 12px 16px;
     background-color: burlywood;
 }
