@@ -58,7 +58,7 @@ export default {
                     message: this.message
             }
             
-            this.$store.dispatch('SAVE_TODO',payload)
+            this.$store.dispatch('UPDATE_COMMENT',payload)
 
             this.author = ''
             this.email = ''
