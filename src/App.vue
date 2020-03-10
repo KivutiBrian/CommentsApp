@@ -3,7 +3,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col-sm"> 
-          <comments-list ></comments-list>
+          <comments-list :comments="$store.state.comments"></comments-list>
         </div>
 
       </div>
@@ -15,6 +15,7 @@
 <script>
 
 import CommentsList from './components/CommentsList'
+import { mapState } from 'vuex'
 
 // import bus from './eventbus'
 
@@ -23,6 +24,11 @@ export default {
   components: {
     CommentsList
   },
+    computed:{
+        ...mapState([
+            'comments'
+        ])
+    },
   data(){
     return{
       // comments:[

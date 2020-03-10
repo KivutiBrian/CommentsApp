@@ -24,6 +24,7 @@
 <script>
 
 // import bus from '../eventbus'
+import { mapMutations } from 'vuex'
 
 export default {
     name:'CommentSection',
@@ -49,16 +50,21 @@ export default {
             // this.email = ''
             // this.message = ''
         // }
+         ...mapMutations([
+                'ADD_COMMENT'
+            ]),
 
+        
         submitData(){
 
+           
             const payload = {
                     author: this.author,
                     email:this.email,
                     message: this.message
             }
             
-            this.$store.dispatch('UPDATE_COMMENT',payload)
+            this.ADD_COMMENT(payload)
 
             this.author = ''
             this.email = ''

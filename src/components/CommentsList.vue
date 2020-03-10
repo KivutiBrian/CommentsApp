@@ -1,6 +1,6 @@
 <template>
   <div class="comments-list">
-   <comment v-for="(comment, index) in $store.state.comments" :key="index" :comment="comment"></comment>
+   <comment v-for="(comment, index) in comments" :key="index" :comment="comment"></comment>
   </div>
 </template>
 
@@ -8,17 +8,19 @@
 
 import Comment from './Comment'
 
+
 export default {
     name:'commentsList',
     components:{
         Comment
     },
-    // props:{
-    //     comments:{
-    //         type:Array,
-    //         required:true
-    //     }
-    // }
+  
+    props:{
+        comments:{
+            type:Array,
+            required:true
+        }
+    }
     
     
 

@@ -15,6 +15,9 @@ export default new Vuex.Store({
     },
     mutations:{
         // to update a state, you need to commit a mutation
+        ADD_COMMENT(state,payload){
+            state.comments.push(payload)
+        }
         
     },
 
@@ -23,7 +26,7 @@ export default new Vuex.Store({
     },
 
     getters:{
-        ALL_COMMENTS: state => state.comments
+        ALL_COMMENTS: state => state.comments.length
 
     }
 })
