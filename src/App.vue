@@ -3,7 +3,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col-sm"> 
-          <comments-list :comments="$store.state.comments"></comments-list>
+          <comments-list :comments="comments"></comments-list>
         </div>
 
       </div>
@@ -34,6 +34,11 @@ export default {
       // ]
     }
   },
+  computed:{
+    comments(){
+      return this.$store.getters.ALL_COMMENTS
+    }
+  }
   // created(){
   //   bus.$on('formData',(data)=>{
   //     this.updateComments(data)

@@ -3,7 +3,7 @@
       <div>
           <h1><i class="fas fa-pen-square"></i></h1>
       </div>
-      <form @submit.prevent="submitForm">
+      <form @submit.prevent="submitData">
           <div class="form-group">
               <input v-model="author" type="text" class="form-control" placeholder="Full name">
           </div>
@@ -23,7 +23,7 @@
 
 <script>
 
-import bus from '../eventbus'
+// import bus from '../eventbus'
 
 export default {
     name:'CommentSection',
@@ -35,15 +35,30 @@ export default {
         }
     },
     methods:{
-        submitForm(){
+        // submitForm(){
             
+            // const payload = {
+            //     author: this.author,
+            //     email:this.email,
+            //     message: this.message
+            // }
+            
+        //     bus.$emit('formData', payload)
+
+            // this.author = ''
+            // this.email = ''
+            // this.message = ''
+        // }
+
+        submitData(){
+
             const payload = {
-                author: this.author,
-                email:this.email,
-                message: this.message
+                    author: this.author,
+                    email:this.email,
+                    message: this.message
             }
             
-            bus.$emit('formData', payload)
+            this.$store.dispatch('SAVE_TODO',payload)
 
             this.author = ''
             this.email = ''

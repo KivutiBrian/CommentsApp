@@ -20,14 +20,21 @@ export default new Vuex.Store({
     },
     mutations:{
         // to update a state, you need to commit a mutation
+        ADD_TODO(state,payload){
+            state.comments.push(payload)
+        }
 
     },
 
     actions:{
+        SAVE_TODO(context,payload){
+            context.commit('ADD_TODO',payload)
+        }
 
     },
 
     getters:{
+        ALL_COMMENTS:state => state.comments 
 
     }
 })
