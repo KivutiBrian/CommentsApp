@@ -59,12 +59,12 @@ export default {
 
            
             const payload = {
-                    author: this.author,
+                    full_name: this.author,
                     email:this.email,
-                    message: this.message
+                    feedback: this.message
             }
             
-            this.ADD_COMMENT(payload)
+            this.$store.dispatch('ADD_POST',payload)
 
             this.author = ''
             this.email = ''

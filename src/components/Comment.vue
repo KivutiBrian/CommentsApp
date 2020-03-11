@@ -2,9 +2,9 @@
   <div>
       <div class="card mb-3" >
         <div class="card-body">
-            <h5 class="card-title">{{ comment.author }}</h5>
+            <h5 class="card-title">{{ comment.full_name }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ comment.email }}</h6>
-            <p class="card-text">{{ comment.message }}</p>
+            <p class="card-text">{{ comment.feedback }}</p>
             
             <i class="far fa-thumbs-up mr-3"></i>
             <i class="far fa-thumbs-down"></i>

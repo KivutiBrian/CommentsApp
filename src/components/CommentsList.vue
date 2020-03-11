@@ -1,6 +1,9 @@
 <template>
-  <div class="comments-list">
-   <comment v-for="(comment, index) in comments" :key="index" :comment="comment"></comment>
+  <div>
+      <p>{{  }}</p>
+    <div class="comments-list">
+        <comment v-for="(comment, index) in comments" :key="index" :comment="comment"></comment>
+    </div>
   </div>
 </template>
 
@@ -14,7 +17,11 @@ export default {
     components:{
         Comment
     },
-  
+    computed:{
+        total_feedbacks(){
+            return this.$store.getters('ALL_COMMENTS')
+        }
+    },
     props:{
         comments:{
             type:Array,

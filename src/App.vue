@@ -24,6 +24,9 @@ export default {
   components: {
     CommentsList
   },
+  mounted(){
+    this.$store.dispatch('LOAD_POSTS')
+  },
     computed:{
         ...mapState([
             'comments'
