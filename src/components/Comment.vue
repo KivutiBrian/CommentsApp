@@ -6,8 +6,8 @@
             <h6 class="card-subtitle mb-2 text-muted">{{ comment.email }}</h6>
             <p class="card-text">{{ comment.feedback }}</p>
             
-            <i class="far fa-thumbs-up mr-3"></i>
-            <i class="far fa-thumbs-down"></i>
+            <!-- <i class="far fa-thumbs-up mr-3"></i>
+            <i class="far fa-thumbs-down"></i> -->
         
             
         </div>
