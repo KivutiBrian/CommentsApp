@@ -14,6 +14,9 @@ export default new Vuex.Store({
         // to update a state, you need to commit a mutation
         UPDATE_COMMENTS(state,payload){
             state.comments = payload
+        },
+        NEW_COMMENT(state,payload){
+            state.comments.push(payload)
         }
         
     },
@@ -28,6 +31,13 @@ export default new Vuex.Store({
                     context.commit('UPDATE_COMMENTS',response.data)
                 })
                 .catch(err=>console.log(err))
+        },
+
+        ADD_COMMENT(context,payload){
+            axios.post('https://tech-feedbacks-api.herokuapp.com/feedback',payload)
+                .then(response=>{
+                    context.commit('NEW_COMMENT',response.data)
+                })
         }
 
         

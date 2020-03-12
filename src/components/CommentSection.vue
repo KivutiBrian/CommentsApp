@@ -24,7 +24,7 @@
 <script>
 
 // import bus from '../eventbus'
-
+import { mapActions } from 'vuex'
 
 export default {
     name:'CommentSection',
@@ -50,7 +50,7 @@ export default {
             // this.email = ''
             // this.message = ''
         // }
-         
+        ...mapActions(['ADD_COMMENT']), 
         
         submitData(){
 
@@ -60,7 +60,7 @@ export default {
                     email:this.email,
                     feedback: this.message
             }
-            console.log(payload)
+            this.ADD_COMMENT(payload)
 
             this.author = ''
             this.email = ''
